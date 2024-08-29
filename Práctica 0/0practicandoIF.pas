@@ -1,11 +1,17 @@
 program PracticandoIF;
 
 var 
-	x: integer;
+	x, y: integer;
 begin
-	x:= 0;
-	if(x > 0) then
-		writeln('x es mayor a 0, x es el número: ', x)
-	else
-		writeln('x no es mayor a 0, x es el número', x);
+	x:= 7;
+	y:= 2;
+	
+	
+	if(x > 4) or (y > 4) then begin
+		writeln('exito')
+	end
+	else begin
+		writeln('falla');
+	end;
+	
 end.
