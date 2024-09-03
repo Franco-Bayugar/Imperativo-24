@@ -26,11 +26,8 @@ procedure AgregarAtras(var L, ultimo: List; randomNumber: integer);
 		
 		ultimo:= newNode;	{apuntar ultimo al newNode creado}
 	end;
-
-
-
-
-
+	
+	
 procedure PrintList(L: List);
 	begin
 		while(L <> nil) do begin
@@ -56,12 +53,33 @@ procedure createList(var L: list);
 	end;
 
 
-
+function BuscarElemento(L: list; toSearch: integer): boolean;
+	begin
+		BuscarElemento:= False;
+		while(L <> nil) do begin
+			if(L^.data = toSearch) and (BuscarElemento = False) then begin
+				BuscarElemento:= true;
+			end
+			else begin
+				L:= L^.next;
+			end;
+		end;
+	end;	
 var
 	L: List;
+	numberToSearch: integer;
 begin
 	Randomize;
 	L:= nil;
 	createList(L);
+	
+	writeln('numero a buscar: ');
+	readln(NumberToSearch);
+	
+	if(BuscarElemento(L, NumberToSearch)) then
+		writeln('NUMERO ENCONTRADO')
+	else
+		writeln('NUMERO NO ENCONTRADO');
+	
 end.
 
