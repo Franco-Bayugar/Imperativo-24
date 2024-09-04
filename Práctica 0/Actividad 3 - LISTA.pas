@@ -15,11 +15,11 @@ procedure AgregarAtras(var L, ultimo: List; randomNumber: integer);
 		newNode: List;
 		
 	begin
-		new(newNode);					{asignación de datas}
+		new(newNode);					{creación de nodo}
 		newNode^.data:= randomNumber;
 		newNode^.next:= nil;
 		
-		if(L = nil) then			{enlazamientos; primera vez y subsecuentes}
+		if(L = nil) then			{enlazamientos; considerando primera vez y subsecuentes}
 			L:= newNode
 		else
 			ultimo^.next:= newNode;
