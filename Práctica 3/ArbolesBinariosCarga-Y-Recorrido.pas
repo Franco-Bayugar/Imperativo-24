@@ -39,18 +39,66 @@ procedure RecorrerArbol(A: Arbol);
 	// ORDEN -> HI, ACCION, HD
 	// PREORDEN -> ACCION, HI, HD
 	// POSTORDEN -> HI, HD, ACCION
+	
+	
+	
+	
+	
+	// BUSCAR ELEMENTO -> BOOLEAN
 
+function BuscarElementoConBoolean(A: arbol; x: integer): boolean;
+	begin
+		if(A = nil) then
+			BuscarElementoConBoolean:= False
+		else
+			if(A^.data = x) then 
+				BuscarElementoConBoolean:= True
+			else
+				if(x < A^.data) then
+					BuscarElementoConBoolean:= BuscarElementoConBoolean(A^.HI, x)
+				else
+					BuscarElementoConBoolean:= BuscarElementoConBoolean(A^.HD, x);
+	end;
+	
+	
+	
+	
+	// BUSCAR ELEMENTO -> NODO
 
+function BuscarElemento(A: arbol; x: integer): integer;
+	begin
+		if(A = nil) then
+			BuscarElemento:= 0
+		else
+			if (x = A^.data) then
+				BuscarElemento:= A^.data
+			else
+				if (x < A^.data) then
+					BuscarElemento(A^.HI, x)
+				else
+					BuscarElemento(A^.HD, x);
+	end;	
 
 var
     a: arbol;
-    elemento: integer;
+    elemento, x: integer;
 begin
-  a:= nil;
-  readln(elemento);
-  while(elemento <> 0) do begin
-    AgregarElemento(a, elemento);
-    readln(elemento);
-  end;
-  RecorrerArbol(a);
+	a:= nil;
+	readln(elemento);
+	while(elemento <> 0) do begin
+		AgregarElemento(a, elemento);
+		readln(elemento);
+	end;
+	writeln();
+	RecorrerArbol(a);
+	writeln();
+  
+	writeln('BUSCAR NÚMERO, RETORNA SI EXISTE O NO: ');
+	readln(x);
+	writeln(BuscarElementoConBoolean(a, x));
+	writeln();
+	
+	writeln('BUSCAR NÚMERO, RETORNA EL NODO: ');
+	readln(x);
+	writeln(BuscarElemento(a, x));
 end.
