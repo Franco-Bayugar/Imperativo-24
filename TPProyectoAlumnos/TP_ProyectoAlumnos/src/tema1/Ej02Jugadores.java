@@ -1,26 +1,37 @@
 
 package tema1;
 
-//Paso 1: Importar la funcionalidad para lectura de datos
-
+import PaqueteLectura.GeneradorAleatorio;
 
 public class Ej02Jugadores {
 
   
     public static void main(String[] args) {
-        //Paso 2: Declarar la variable vector de double 
+        GeneradorAleatorio.iniciar();
         
-        //Paso 3: Crear el vector para 15 double 
+        // declaracion de variables
+        double [] VectorAlturas = new double[15]; // yendo del 0..14, acá tendría que arrancar de 1 si fuese un programa operado por un ser humano?
+        int i;
+        double total = 0, promedio = 0, cantTotalMayoresPromedio = 0;
         
-        //Paso 4: Declarar indice y variables auxiliares a usar
-                
-        //Paso 6: Ingresar 15 numeros (altura), cargarlos en el vector, ir calculando la suma de alturas
+        // carga del vector
         
-        //Paso 7: Calcular el promedio de alturas, informarlo
+        for(i=0; i<VectorAlturas.length; i++){
+            VectorAlturas[i] = GeneradorAleatorio.generarDouble(300);
+            System.out.println("Posicion: " + i);
+            System.out.println("Altura generada: " + VectorAlturas[i]);
+            total += VectorAlturas[i];
+            System.out.println("----------");
+        }
         
-        //Paso 8: Recorrer el vector calculando lo pedido (cant. alturas que están por encima del promedio)
-     
-        //Paso 9: Informar la cantidad.
+        promedio = (double) total / VectorAlturas.length;
+        System.out.println("Promedio de Alturas: " + promedio);
+        
+        for(i=0; i < VectorAlturas.length; i++)
+            if(VectorAlturas[i] > promedio)
+                cantTotalMayoresPromedio++;
+        
+        System.out.println("Cantidad total de Mayores al promedio: " + cantTotalMayoresPromedio);
     }
     
 }
