@@ -40,7 +40,7 @@ public class Ej04Alternativo {
         System.out.println();
         
         while(PisoDeseado != 9) {
-            MatrizEdificio[PisoDeseado - 1][OficinaDeseada - 1]++;
+            MatrizEdificio[PisoDeseado - 1][OficinaDeseada - 1]++; // correccion para la pc, ACA MODIFICO UNA POSICION NO VALOR, POR ESO LA CORRECION
             
             System.out.print("Ingrese Piso (1-8): ");
             PisoDeseado = Lector.leerInt();
@@ -49,12 +49,16 @@ public class Ej04Alternativo {
             System.out.println();
         }
         
-        for(int i = 0; i < pisos; i++){
+        for(int i = 0; i < pisos; i++){ // i = 0 siempre porque matrices y vectores son indexados desde 0s
             for(int j = 0; j < oficinas; j++){
-                System.out.println("Piso " + (i+1) + " Oficina " + (j+1) + ": " + MatrizEdificio[i][j]);
+                System.out.println("Piso " + (i+1) + " Oficina " + (j+1) + ": " + MatrizEdificio[i][j]); // correccion para el usuario
             }
         }
         
     }
+    
+    
+    // RECIBO DATA DEL USUARIO -> CORRIJO CON -1
+    // DEVUELVO DATA AL USUARIO -> +1
     
 }
